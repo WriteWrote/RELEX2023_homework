@@ -1,4 +1,4 @@
-package org.obukhova.ssr.security;
+package org.obukhova.ssr.service;
 
 import org.obukhova.ssr.model.entity.RoleEntity;
 import org.obukhova.ssr.model.entity.UserEntity;
@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-
     private final UserRepository userRepository;
 
     @Autowired
