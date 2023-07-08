@@ -22,7 +22,10 @@ public class MessageController {
     @PostMapping("/send")
     public ResponseEntity<MessageDto> sendMessage(@RequestBody MessageDto dto) {
         try {
-            return service.createMessage(dto);
+            return ResponseEntity
+                    .ok()
+                    .header("Server message", "Message sent successfully")
+                    .body(service.createMessage(dto));
         } catch (Exception ex) {
             return ResponseEntity.internalServerError()
                     .header("Server message", "User message saving failed")
@@ -32,14 +35,8 @@ public class MessageController {
 
     @GetMapping("/getAll")
     public ResponseEntity<List<MessageDto>> getAllMessages() {
-//        try {
         return ResponseEntity.ok()
                 .header("Server message", "Request all messages succeeded")
                 .body(service.getAllMessages());
-//        } catch (Exception ex) {
-//            return ResponseEntity.internalServerError()
-//                    .header("Server message", "Request all messages succeeded")
-//                    .build();
-//        }
     }
 }

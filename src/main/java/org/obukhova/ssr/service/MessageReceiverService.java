@@ -1,6 +1,5 @@
 package org.obukhova.ssr.service;
 
-import org.apache.tomcat.util.http.HeaderUtil;
 import org.obukhova.ssr.model.dto.MessageDto;
 import org.obukhova.ssr.model.entity.MessageEntity;
 import org.obukhova.ssr.model.mapper.IMessageMapper;
@@ -8,10 +7,8 @@ import org.obukhova.ssr.repository.MessageRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,18 +27,17 @@ public class MessageReceiverService {
         logger = LoggerFactory.getLogger(MessageReceiverService.class);
     }
 
-    public ResponseEntity<MessageDto> createMessage(MessageDto dto) throws URISyntaxException {
+    public MessageDto createMessage(MessageDto dto) throws URISyntaxException {
         MessageEntity entity = mapper.toEntity(dto);
-        logger.info("Recieved a message: id {}, sender {}, text {}",
-                entity.getId().toString(), entity.getSender(), entity.getText());
 
         repository.save(entity);
+        logger.info("Recieved a message: id {}, sender {}, text {}",
+                entity.getId().toString(), entity.getSender(), entity.getText());
         logger.info("Message with id {} saved successfully",
                 entity.getId().toString());
 
-        return ResponseEntity
-                .created(new URI("/messages/create/" + entity.getId().toString()))
-                .body(mapper.fromEntity(entity));
+        return Optional.of(mapper.fromEntity(entity))
+                .orElseThrow();
     }
 
     public List<MessageDto> getAllMessages() {
