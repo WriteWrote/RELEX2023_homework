@@ -19,7 +19,7 @@ public class RoleEntity {
     @Column(name = "role_name")
     private String roleName;
 
-    @ManyToMany//(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "userroles", schema = "ssr2023_hometask",
             joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"),

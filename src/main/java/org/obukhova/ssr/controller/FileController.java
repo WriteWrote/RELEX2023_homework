@@ -30,7 +30,7 @@ public class FileController {
             Path path = service.getCsv();
             ByteArrayResource resource = new ByteArrayResource(Files.readAllBytes(path));
             return ResponseEntity.ok()
-                    .header("Server message", "Message parsing succeded")
+                    .header("Server message", "Message parsing succeeded")
                     .body(resource);
         } catch (Exception ex) {
             return ResponseEntity.internalServerError()

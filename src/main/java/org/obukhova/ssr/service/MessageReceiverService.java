@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -27,10 +26,11 @@ public class MessageReceiverService {
         logger = LoggerFactory.getLogger(MessageReceiverService.class);
     }
 
-    public MessageDto createMessage(MessageDto dto) throws URISyntaxException {
+    public MessageDto createMessage(MessageDto dto) {
         MessageEntity entity = mapper.toEntity(dto);
 
         repository.save(entity);
+
         logger.info("Recieved a message: id {}, sender {}, text {}",
                 entity.getId().toString(), entity.getSenderId(), entity.getText());
         logger.info("Message with id {} saved successfully",

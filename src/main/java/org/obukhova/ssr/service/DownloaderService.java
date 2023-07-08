@@ -33,7 +33,7 @@ public class DownloaderService {
         logger = LoggerFactory.getLogger(MessageReceiverService.class);
     }
 
-    public Path getCsv() throws URISyntaxException, IOException {
+    public Path getCsv() throws IOException {
         List<MessageEntity> entities = repository.findAll();
         UUID uuid = UUID.randomUUID();
         Path path = Path.of("src/main/resources/disposable/" + uuid + "temp.csv");
