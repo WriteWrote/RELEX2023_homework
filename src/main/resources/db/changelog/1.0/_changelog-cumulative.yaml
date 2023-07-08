@@ -29,3 +29,12 @@ databaseChangeLog:
         - sqlFile:
             path: SSR-002-080720231940.sql
             relativeToChangelogFile: true
+  - changeSet:
+      id: SSR-002-080720232340
+      author: Ellina Obukhova
+      comment: add column password into table users
+      runOnChange: true
+      changes:
+        - sqlFile:
+            path: SSR-002-080720232340.sql
+            relativeToChangelogFile: true

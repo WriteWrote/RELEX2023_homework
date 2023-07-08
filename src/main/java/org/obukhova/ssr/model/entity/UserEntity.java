@@ -19,6 +19,9 @@ public class UserEntity {
     @Column(name = "user_name")
     private String userName;
 
+    @Column(name = "password")
+    private String password;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "userroles", schema = "ssr2023_hometask",
