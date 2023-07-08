@@ -32,7 +32,7 @@ public class MessageReceiverService {
 
         repository.save(entity);
         logger.info("Recieved a message: id {}, sender {}, text {}",
-                entity.getId().toString(), entity.getSender(), entity.getText());
+                entity.getId().toString(), entity.getSenderId(), entity.getText());
         logger.info("Message with id {} saved successfully",
                 entity.getId().toString());
 
