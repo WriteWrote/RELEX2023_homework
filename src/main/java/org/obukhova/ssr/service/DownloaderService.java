@@ -50,15 +50,4 @@ public class DownloaderService {
 
         return path;
     }
-
-    public Path getXlsx(){
-        List<MessageEntity> entities = repository.findAll();
-        UUID uuid = UUID.randomUUID();
-        Path path = Path.of("src/main/resources/disposable/" + uuid + "temp.csv");
-        logger.info("File to path {}", path);
-
-
-
-        return path;
-    }
 }

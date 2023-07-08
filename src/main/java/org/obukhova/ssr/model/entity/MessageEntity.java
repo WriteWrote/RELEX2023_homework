@@ -2,9 +2,13 @@ package org.obukhova.ssr.model.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @jakarta.persistence.Entity
 @Table(name = "messages", schema = "ssr2023_hometask")
+@Getter
+@Setter
 public class MessageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,29 +29,5 @@ public class MessageEntity {
 
     public MessageEntity() {
 
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getSender() {
-        return sender;
-    }
-
-    public void setSender(String sender) {
-        this.sender = sender;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 }
