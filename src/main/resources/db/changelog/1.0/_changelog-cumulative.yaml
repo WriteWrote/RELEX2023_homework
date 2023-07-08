@@ -11,3 +11,12 @@ databaseChangeLog:
         - sqlFile:
             path: SSR-001-060720231330.sql
             relativeToChangelogFile: true
+  - changeSet:
+      id: SSR-002-080720231630
+      author: Ellina Obukhova
+      comment: add user, roles table, fix structure
+      runOnChange: true
+      changes:
+        - sqlFile:
+            path: SSR-002-080720231630.sql
+            relativeToChangelogFile: true

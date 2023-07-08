@@ -15,18 +15,17 @@ public class MessageEntity {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "sender")
-    private String sender;
+    @Column(name = "sender_id")
+    private Integer senderId;
 
     @Column(name = "text")
     private String text;
 
-    public MessageEntity(Integer id, String sender, String text) {
+    public MessageEntity(Integer id, Integer senderId, String text) {
         this.id = id;
-        this.sender = sender;
+        this.senderId = senderId;
         this.text = text;
     }
-
     public MessageEntity() {
 
     }

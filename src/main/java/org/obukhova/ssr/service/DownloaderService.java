@@ -42,7 +42,7 @@ public class DownloaderService {
         CSVWriter writer = new CSVWriter(new FileWriter(path.toFile()));
         for (MessageEntity entity : entities) {
             String[] line = new String[]{entity.getId().toString(),
-                    entity.getSender(),
+                    entity.getSenderId().toString(),
                     entity.getText()};
             writer.writeNext(line);
         }
