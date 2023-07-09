@@ -37,8 +37,4 @@ public class FileController {
                     .build();
         }
     }
-
-    //todo docker
-    // todo microservices
-    //todo: proper readme
 }

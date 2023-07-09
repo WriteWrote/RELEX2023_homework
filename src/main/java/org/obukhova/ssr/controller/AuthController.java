@@ -9,8 +9,10 @@ import org.obukhova.ssr.repository.RoleRepository;
 import org.obukhova.ssr.repository.UserRepository;
 import org.obukhova.ssr.security.JWTGenerator;
 import org.obukhova.ssr.security.SecurityConstants;
+import org.obukhova.ssr.service.MessageReceiverService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,11 +27,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-    private AuthenticationManager authenticationManager;
-    private UserRepository userRepository;
-    private RoleRepository roleRepository;
-    private PasswordEncoder passwordEncoder;
-    private JWTGenerator jwtGenerator;
+    private final AuthenticationManager authenticationManager;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JWTGenerator jwtGenerator;
+    private final Logger logger;
 
     @Autowired
     public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository,
@@ -39,10 +42,13 @@ public class AuthController {
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtGenerator = jwtGenerator;
+        logger = LoggerFactory.getLogger(MessageReceiverService.class);
     }
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponseDTO> login(@RequestBody LoginDto loginDto) {
+        logger.info("Authentication. User {}", loginDto.getUsername());
+
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginDto.getUsername(),
@@ -79,7 +85,7 @@ public class AuthController {
     }
 
     @PostMapping("/registerAdmin/{id}")
-    public ResponseEntity<String> registerAdmin(@PathVariable Integer id){
+    public ResponseEntity<String> registerAdmin(@PathVariable Integer id) {
         try {
             UserEntity user = userRepository.findById(id).get();
             List<RoleEntity> roles = user.getUserRoles();
@@ -89,7 +95,7 @@ public class AuthController {
             return ResponseEntity.ok()
                     .header("Server message", "User applied to admin role successfully")
                     .build();
-        }catch (Exception ex){
+        } catch (Exception ex) {
             return ResponseEntity.internalServerError()
                     .header("Server message", "User applied to admin role unsuccessfully")
                     .body(ex.getMessage());

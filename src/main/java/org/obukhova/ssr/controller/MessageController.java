@@ -1,7 +1,6 @@
 package org.obukhova.ssr.controller;
 
 import org.obukhova.ssr.model.dto.MessageDto;
-import org.obukhova.ssr.model.entity.MessageEntity;
 import org.obukhova.ssr.security.SecurityConstants;
 import org.obukhova.ssr.service.MessageReceiverService;
 import org.springframework.beans.factory.annotation.Autowired;

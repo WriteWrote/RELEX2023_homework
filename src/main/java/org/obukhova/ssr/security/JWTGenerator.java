@@ -26,7 +26,7 @@ public class JWTGenerator {
     public String generateToken(Authentication authentication) {
         String username = authentication.getName();
         Date currentDate = new Date();
-        Date expireDate = new Date(currentDate.getTime() + SecurityConstants.JWT_EXPIRATION);
+        Date expireDate = new Date(currentDate.getTime() + SecurityConstants.JWT_EXPIRATION_TIME_MS);
 
         String token = Jwts.builder()
                 .setSubject(username)
@@ -59,5 +59,4 @@ public class JWTGenerator {
             throw new AuthenticationCredentialsNotFoundException("JWT was expired or incorrect", ex.fillInStackTrace());
         }
     }
-
 }

@@ -1,14 +1,15 @@
 package org.obukhova.ssr.configs;
 
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-@org.springframework.context.annotation.Configuration
+@Configuration
 @ComponentScan(basePackages = {
         "org.obukhova.ssr.controller",
         "org.obukhova.ssr.service",
         "org.obukhova.ssr.model.*"
 })
 @EnableAspectJAutoProxy
-public class Configuration {
+public class AppConfiguration {
 }

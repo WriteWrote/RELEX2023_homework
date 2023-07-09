@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@jakarta.persistence.Entity
+@Entity
 @Table(name = "messages", schema = "ssr2023_hometask")
 @Getter
 @Setter
@@ -30,7 +30,7 @@ public class MessageEntity {
         this.senderId = senderId;
         this.text = text;
     }
-    public MessageEntity() {
 
+    public MessageEntity() {
     }
 }
