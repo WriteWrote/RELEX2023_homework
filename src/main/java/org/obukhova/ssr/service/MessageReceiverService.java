@@ -29,7 +29,7 @@ public class MessageReceiverService {
     public MessageDto createMessage(MessageDto dto) {
         MessageEntity entity = mapper.toEntity(dto);
 
-        repository.save(entity);
+        entity = repository.save(entity);
 
         logger.info("Recieved a message: id {}, sender {}, text {}",
                 entity.getId().toString(), entity.getSenderId(), entity.getText());

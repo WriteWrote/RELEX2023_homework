@@ -2,13 +2,17 @@ package org.obukhova.ssr.model.entity;
 
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @jakarta.persistence.Entity
 @Table(name = "messages", schema = "ssr2023_hometask")
 @Getter
 @Setter
+@EqualsAndHashCode
+@ToString
 public class MessageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

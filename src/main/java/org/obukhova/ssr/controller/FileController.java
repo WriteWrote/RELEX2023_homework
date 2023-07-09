@@ -19,7 +19,6 @@ public class FileController {
     private final DownloaderService service;
 
     @Autowired
-
     public FileController(DownloaderService service) {
         this.service = service;
     }

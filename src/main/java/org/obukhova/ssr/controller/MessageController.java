@@ -2,9 +2,11 @@ package org.obukhova.ssr.controller;
 
 import org.obukhova.ssr.model.dto.MessageDto;
 import org.obukhova.ssr.model.entity.MessageEntity;
+import org.obukhova.ssr.security.SecurityConstants;
 import org.obukhova.ssr.service.MessageReceiverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,6 +36,7 @@ public class MessageController {
     }
 
     @GetMapping("/getAll")
+    @PreAuthorize("hasAuthority(\"" + SecurityConstants.ADMIN + "\")")
     public ResponseEntity<List<MessageDto>> getAllMessages() {
         return ResponseEntity.ok()
                 .header("Server message", "Request all messages succeeded")

@@ -1,8 +1,9 @@
 package org.obukhova.ssr.configs;
 
 import org.obukhova.ssr.security.JwtAuthEntryPoint;
+import org.obukhova.ssr.security.SecurityConstants;
 import org.obukhova.ssr.service.CustomUserDetailsService;
-import org.obukhova.ssr.service.JWTAuthenticationFilter;
+import org.obukhova.ssr.security.JWTAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,6 +41,8 @@ public class SecurityConfiguration {
                 .and()
                 .authorizeRequests()
                 .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/message/getAll").hasAuthority(SecurityConstants.ADMIN)
+                .requestMatchers("/download/**").hasAuthority(SecurityConstants.ADMIN)
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();

@@ -21,7 +21,7 @@ databaseChangeLog:
             path: SSR-002-080720231630.sql
             relativeToChangelogFile: true
   - changeSet:
-      id: SSR-002-080720231640
+      id: SSR-002-080720231940
       author: Ellina Obukhova
       comment: add user roles into table roles
       runOnChange: true
@@ -38,3 +38,12 @@ databaseChangeLog:
         - sqlFile:
             path: SSR-002-080720232340.sql
             relativeToChangelogFile: true
+#  - changeSet:
+#      id: SSR-002-090720231500
+#      author: Ellina Obukhova
+#      comment: truncate tables and get new fake data
+#      runOnChange: true
+#      changes:
+#        - sqlFile:
+#            path: SSR-002-090720231500.sql
+#            relativeToChangelogFile: true
