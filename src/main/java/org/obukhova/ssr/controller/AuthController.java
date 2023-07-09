@@ -17,12 +17,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
+import java.util.List;
 
 @RestController
 @RequestMapping("/auth")
@@ -78,5 +76,23 @@ public class AuthController {
         return ResponseEntity.ok()
                 .header("Server message", "User registered successfully")
                 .body(user);
+    }
+
+    @PostMapping("/registerAdmin/{id}")
+    public ResponseEntity<String> registerAdmin(@PathVariable Integer id){
+        try {
+            UserEntity user = userRepository.findById(id).get();
+            List<RoleEntity> roles = user.getUserRoles();
+            roles.add(roleRepository.findByRoleName(SecurityConstants.ADMIN).get());
+            user.setUserRoles(roles);
+            userRepository.save(user);
+            return ResponseEntity.ok()
+                    .header("Server message", "User applied to admin role successfully")
+                    .build();
+        }catch (Exception ex){
+            return ResponseEntity.internalServerError()
+                    .header("Server message", "User applied to admin role unsuccessfully")
+                    .body(ex.getMessage());
+        }
     }
 }
