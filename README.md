@@ -1,6 +1,5 @@
 # # RELEX 2023 summer hometask for JAVA BACKEND
 ## Obukhova Ellina / Обухова Элина
-## Ru
 ### Видео тестирования:
 Video of the testing: https://drive.google.com/file/d/1T0f003DvmDuKj1Coviru351icLFNX3-s/view?usp=sharing
 
@@ -33,6 +32,8 @@ Video of the testing: https://drive.google.com/file/d/1T0f003DvmDuKj1Coviru351ic
 
 Пользователям со статусом **admin** доступна выгрузка всех сообщений в csv / получение всех сообщений через json.
 
+При выгрузке csv передается ByteArrayResource, временная версия csv хранится в resources/csv_storage.
+
 ### Запуск
 ##### Конфигурация Spring Boot Application
 > <img src="Pasted image 20230713125437.png">
@@ -42,14 +43,9 @@ Video of the testing: https://drive.google.com/file/d/1T0f003DvmDuKj1Coviru351ic
 
 > docker-compose down --volumes
 
+И снова поднимите контейнер.
+
 ##### Postman workspace: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/16916558-e7081c88-5d5b-4791-b109-a737318d7cc3?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D16916558-e7081c88-5d5b-4791-b109-a737318d7cc3%26entityType%3Dcollection%26workspaceId%3D5fb6f1e9-c29c-4089-85b4-3422c977a967)
 ![View collection in your workspace:](https://github.com/WriteWrote/RELEX2023_homework/assets/45429218/5811ae46-0bb6-4a40-b62f-9994aabf02a7)
 
 Для тестирования необходим десктоп-клиент Postman.
-
-<details>
-    <summary>Eng version: click to expand</summary>
-## Basic API:
-- POST
-- GET
-</details>
