@@ -2,7 +2,7 @@
 ## Obukhova Ellina / Обухова Элина
 ## Ru
 ### Видео тестирования:
-![Video of the testing](src/main/resources/video/video.mp4)
+![Video of the testing](https://drive.google.com/file/d/1T0f003DvmDuKj1Coviru351icLFNX3-s/view?usp=sharing)
 
 ### Основной функционал:
 
@@ -49,7 +49,7 @@
 
 <details>
     <summary>Eng version: click to expand</summary>
-    ## Basic API:
-    - POST
-    - GET
+## Basic API:
+- POST
+- GET
 </details>
