@@ -1,8 +1,8 @@
 # # RELEX 2023 summer hometask for JAVA BACKEND
 ## Obukhova Ellina / Обухова Элина
-
+## Ru
 ### Видео тестирования:
-
+![Video of the testing](src/main/resources/video/video.mp4)
 
 ### Основной функционал:
 
@@ -31,13 +31,25 @@
 
 Пользователям со статусом **user** доступна регистрация, вход, отправка сообщение и запрос на добавление роли администратора.
 
-Пользователям со статусом **admin** доступна также выгрузка всех сообщений в csv / получение всех сообщений через json.
+Пользователям со статусом **admin** доступна выгрузка всех сообщений в csv / получение всех сообщений через json.
 
 ### Запуск
 ##### Конфигурация Spring Boot Application
 > <img src="Pasted image 20230713125437.png">
 ##### Перед запуском поднять докер-контейнер с бд помощью docker-compose
-##### Тестирование через постман, см. видео выше
+
+**Troubleshooting:** при ошибках "нет подключения к базе данных" / "база данных test не существует" выполните в директории с проектом команду в консоли:
+
+> docker-compose down --volumes
+
 ##### Postman workspace: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/16916558-e7081c88-5d5b-4791-b109-a737318d7cc3?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D16916558-e7081c88-5d5b-4791-b109-a737318d7cc3%26entityType%3Dcollection%26workspaceId%3D5fb6f1e9-c29c-4089-85b4-3422c977a967)
 ![image](https://github.com/WriteWrote/RELEX2023_omework/assets/45429218/b9e322dd-d2e1-4a32-80e8-d45ffd3782ba)
 
+Для тестирования необходим десктоп-клиент Postman.
+
+<details>
+    <summary>Eng version: click to expand</summary>
+    ## Basic API:
+    - POST
+    - GET
+</details>

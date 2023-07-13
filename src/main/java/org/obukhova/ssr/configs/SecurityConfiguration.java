@@ -40,9 +40,12 @@ public class SecurityConfiguration {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/auth/login").permitAll()
+                .requestMatchers("/auth/register").permitAll()
+                .requestMatchers("/auth/registerAdmin/**").hasAuthority(SecurityConstants.USER)
                 .requestMatchers("/message/getAll").hasAuthority(SecurityConstants.ADMIN)
                 .requestMatchers("/download/**").hasAuthority(SecurityConstants.ADMIN)
+                .requestMatchers("/message/send").hasAuthority(SecurityConstants.USER)
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
