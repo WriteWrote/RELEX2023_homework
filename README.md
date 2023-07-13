@@ -40,5 +40,4 @@
 ##### Тестирование через постман, см. видео выше
 ##### Postman workspace: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/16916558-e7081c88-5d5b-4791-b109-a737318d7cc3?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D16916558-e7081c88-5d5b-4791-b109-a737318d7cc3%26entityType%3Dcollection%26workspaceId%3D5fb6f1e9-c29c-4089-85b4-3422c977a967)
 ![Воспользуйтесь "просмотром в workspace":](![image](https://github.com/WriteWrote/RELEX2023_homework/assets/45429218/5811ae46-0bb6-4a40-b62f-9994aabf02a7)
-)
 
