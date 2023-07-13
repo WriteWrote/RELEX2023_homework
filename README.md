@@ -23,6 +23,7 @@
 - JPA
 - Jakarta Validators for validation, Mapstruct for Mappers
 - Docker for storing DB (created docker-compose)
+- логгер SLF4J
 
 ### Описание
 
@@ -34,6 +35,6 @@
 
 ### Запуск
 ##### Конфигурация Spring Boot Application
-
+> <img src="Pasted image 20230713125437.png" width="300">
 ##### Перед запуском поднять докер-контейнер с бд помощью docker-compose
 ##### Тестирование через постман, см. видео выше
